@@ -1,0 +1,10 @@
+Yii Web Programming Framework
+=============================
+
+Thank you for choosing Yii - a high-performance component-based PHP framework.
+
+
+INSTALLATION
+------------
+
+IMPORT THE BACKUP FILE (db.backup) TO POSTGRESQL AND RUN teste/index.php.

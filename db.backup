@@ -1,0 +1,547 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.3.1
+-- Dumped by pg_dump version 9.3.1
+-- Started on 2013-12-02 10:16:16
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 1980 (class 1262 OID 16475)
+-- Name: teste; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE teste WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'Portuguese_Brazil.1252' LC_CTYPE = 'Portuguese_Brazil.1252';
+
+
+ALTER DATABASE teste OWNER TO postgres;
+
+\connect teste
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 178 (class 3079 OID 11750)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 1983 (class 0 OID 0)
+-- Dependencies: 178
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 177 (class 1259 OID 16512)
+-- Name: carro; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE carro (
+    id_carro integer NOT NULL,
+    modelo character varying(200),
+    ano integer,
+    valor integer,
+    num_parcelas_max integer,
+    valor_total integer,
+    data_cadastro_carro date DEFAULT ('now'::text)::date,
+    fk_usuario_carro integer,
+    fk_marca_carro integer,
+    foto character(200)
+);
+
+
+ALTER TABLE public.carro OWNER TO postgres;
+
+--
+-- TOC entry 1984 (class 0 OID 0)
+-- Dependencies: 177
+-- Name: COLUMN carro.id_carro; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN carro.id_carro IS 'Id';
+
+
+--
+-- TOC entry 1985 (class 0 OID 0)
+-- Dependencies: 177
+-- Name: COLUMN carro.num_parcelas_max; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN carro.num_parcelas_max IS 'Número de parcelas';
+
+
+--
+-- TOC entry 1986 (class 0 OID 0)
+-- Dependencies: 177
+-- Name: COLUMN carro.data_cadastro_carro; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN carro.data_cadastro_carro IS 'Cadastrado em';
+
+
+--
+-- TOC entry 1987 (class 0 OID 0)
+-- Dependencies: 177
+-- Name: COLUMN carro.fk_usuario_carro; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN carro.fk_usuario_carro IS 'Cadastrado por';
+
+
+--
+-- TOC entry 1988 (class 0 OID 0)
+-- Dependencies: 177
+-- Name: COLUMN carro.fk_marca_carro; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN carro.fk_marca_carro IS 'Marca';
+
+
+--
+-- TOC entry 176 (class 1259 OID 16510)
+-- Name: carro_id_carro_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE carro_id_carro_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.carro_id_carro_seq OWNER TO postgres;
+
+--
+-- TOC entry 1989 (class 0 OID 0)
+-- Dependencies: 176
+-- Name: carro_id_carro_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE carro_id_carro_seq OWNED BY carro.id_carro;
+
+
+--
+-- TOC entry 173 (class 1259 OID 16486)
+-- Name: logs; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE logs (
+    id_logs integer NOT NULL,
+    data_logs date DEFAULT ('now'::text)::date,
+    fk_usuario_logs integer
+);
+
+
+ALTER TABLE public.logs OWNER TO postgres;
+
+--
+-- TOC entry 1990 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: COLUMN logs.id_logs; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN logs.id_logs IS 'Id';
+
+
+--
+-- TOC entry 1991 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: COLUMN logs.data_logs; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN logs.data_logs IS 'Data de acesso';
+
+
+--
+-- TOC entry 172 (class 1259 OID 16484)
+-- Name: logs_id_logs_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE logs_id_logs_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.logs_id_logs_seq OWNER TO postgres;
+
+--
+-- TOC entry 1992 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: logs_id_logs_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE logs_id_logs_seq OWNED BY logs.id_logs;
+
+
+--
+-- TOC entry 175 (class 1259 OID 16499)
+-- Name: marca; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE marca (
+    id_marca integer NOT NULL,
+    marca_nome character varying(200),
+    data_cadastro_marca date DEFAULT ('now'::text)::date,
+    fk_usuario_marca integer
+);
+
+
+ALTER TABLE public.marca OWNER TO postgres;
+
+--
+-- TOC entry 1993 (class 0 OID 0)
+-- Dependencies: 175
+-- Name: COLUMN marca.id_marca; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN marca.id_marca IS 'Id';
+
+
+--
+-- TOC entry 1994 (class 0 OID 0)
+-- Dependencies: 175
+-- Name: COLUMN marca.marca_nome; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN marca.marca_nome IS 'Marca';
+
+
+--
+-- TOC entry 1995 (class 0 OID 0)
+-- Dependencies: 175
+-- Name: COLUMN marca.data_cadastro_marca; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN marca.data_cadastro_marca IS 'Cadastrado em';
+
+
+--
+-- TOC entry 1996 (class 0 OID 0)
+-- Dependencies: 175
+-- Name: COLUMN marca.fk_usuario_marca; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN marca.fk_usuario_marca IS 'Cadastrado por';
+
+
+--
+-- TOC entry 174 (class 1259 OID 16497)
+-- Name: marca_id_marca_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE marca_id_marca_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.marca_id_marca_seq OWNER TO postgres;
+
+--
+-- TOC entry 1997 (class 0 OID 0)
+-- Dependencies: 174
+-- Name: marca_id_marca_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE marca_id_marca_seq OWNED BY marca.id_marca;
+
+
+--
+-- TOC entry 171 (class 1259 OID 16478)
+-- Name: usuario; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE usuario (
+    id_usuario integer NOT NULL,
+    perfil integer,
+    nome character varying(200),
+    senha character varying(200)
+);
+
+
+ALTER TABLE public.usuario OWNER TO postgres;
+
+--
+-- TOC entry 1998 (class 0 OID 0)
+-- Dependencies: 171
+-- Name: TABLE usuario; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE usuario IS 'Id';
+
+
+--
+-- TOC entry 1999 (class 0 OID 0)
+-- Dependencies: 171
+-- Name: COLUMN usuario.id_usuario; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN usuario.id_usuario IS 'Id';
+
+
+--
+-- TOC entry 2000 (class 0 OID 0)
+-- Dependencies: 171
+-- Name: COLUMN usuario.perfil; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN usuario.perfil IS '(0=user|1=adm)';
+
+
+--
+-- TOC entry 170 (class 1259 OID 16476)
+-- Name: usuario_id_usuario_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE usuario_id_usuario_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.usuario_id_usuario_seq OWNER TO postgres;
+
+--
+-- TOC entry 2001 (class 0 OID 0)
+-- Dependencies: 170
+-- Name: usuario_id_usuario_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE usuario_id_usuario_seq OWNED BY usuario.id_usuario;
+
+
+--
+-- TOC entry 1847 (class 2604 OID 16515)
+-- Name: id_carro; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY carro ALTER COLUMN id_carro SET DEFAULT nextval('carro_id_carro_seq'::regclass);
+
+
+--
+-- TOC entry 1843 (class 2604 OID 16489)
+-- Name: id_logs; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY logs ALTER COLUMN id_logs SET DEFAULT nextval('logs_id_logs_seq'::regclass);
+
+
+--
+-- TOC entry 1845 (class 2604 OID 16502)
+-- Name: id_marca; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY marca ALTER COLUMN id_marca SET DEFAULT nextval('marca_id_marca_seq'::regclass);
+
+
+--
+-- TOC entry 1842 (class 2604 OID 16481)
+-- Name: id_usuario; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY usuario ALTER COLUMN id_usuario SET DEFAULT nextval('usuario_id_usuario_seq'::regclass);
+
+
+--
+-- TOC entry 1975 (class 0 OID 16512)
+-- Dependencies: 177
+-- Data for Name: carro; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO carro (id_carro, modelo, ano, valor, num_parcelas_max, valor_total, data_cadastro_carro, fk_usuario_carro, fk_marca_carro, foto) VALUES (110, 'Civic', 2014, 90000, 3, 102600, '2013-12-02', 1, 1, 'Honda-Civic-2014.jpg                                                                                                                                                                                    ');
+INSERT INTO carro (id_carro, modelo, ano, valor, num_parcelas_max, valor_total, data_cadastro_carro, fk_usuario_carro, fk_marca_carro, foto) VALUES (111, 'Logan', 2014, 40000, 12, 58200, '2013-12-02', 1, 2, 'logan2014.jpg                                                                                                                                                                                           ');
+
+
+--
+-- TOC entry 2002 (class 0 OID 0)
+-- Dependencies: 176
+-- Name: carro_id_carro_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('carro_id_carro_seq', 111, true);
+
+
+--
+-- TOC entry 1971 (class 0 OID 16486)
+-- Dependencies: 173
+-- Data for Name: logs; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO logs (id_logs, data_logs, fk_usuario_logs) VALUES (1, '2013-12-02', 1);
+INSERT INTO logs (id_logs, data_logs, fk_usuario_logs) VALUES (2, '2013-12-02', 2);
+INSERT INTO logs (id_logs, data_logs, fk_usuario_logs) VALUES (3, '2013-12-02', 2);
+INSERT INTO logs (id_logs, data_logs, fk_usuario_logs) VALUES (4, '2013-12-02', 1);
+INSERT INTO logs (id_logs, data_logs, fk_usuario_logs) VALUES (5, '2013-12-02', 1);
+INSERT INTO logs (id_logs, data_logs, fk_usuario_logs) VALUES (6, '2013-12-02', 1);
+
+
+--
+-- TOC entry 2003 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: logs_id_logs_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('logs_id_logs_seq', 6, true);
+
+
+--
+-- TOC entry 1973 (class 0 OID 16499)
+-- Dependencies: 175
+-- Data for Name: marca; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO marca (id_marca, marca_nome, data_cadastro_marca, fk_usuario_marca) VALUES (1, 'Honda', '2013-12-01', 1);
+INSERT INTO marca (id_marca, marca_nome, data_cadastro_marca, fk_usuario_marca) VALUES (2, 'Renault', '2013-12-02', 1);
+INSERT INTO marca (id_marca, marca_nome, data_cadastro_marca, fk_usuario_marca) VALUES (3, 'Ford', '2013-12-02', 1);
+
+
+--
+-- TOC entry 2004 (class 0 OID 0)
+-- Dependencies: 174
+-- Name: marca_id_marca_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('marca_id_marca_seq', 3, true);
+
+
+--
+-- TOC entry 1969 (class 0 OID 16478)
+-- Dependencies: 171
+-- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO usuario (id_usuario, perfil, nome, senha) VALUES (1, 1, 'admin', '123');
+INSERT INTO usuario (id_usuario, perfil, nome, senha) VALUES (2, 0, 'funcionario', '123');
+
+
+--
+-- TOC entry 2005 (class 0 OID 0)
+-- Dependencies: 170
+-- Name: usuario_id_usuario_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('usuario_id_usuario_seq', 2, true);
+
+
+--
+-- TOC entry 1856 (class 2606 OID 16520)
+-- Name: carro_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY carro
+    ADD CONSTRAINT carro_pk PRIMARY KEY (id_carro);
+
+
+--
+-- TOC entry 1852 (class 2606 OID 16491)
+-- Name: logs_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY logs
+    ADD CONSTRAINT logs_pk PRIMARY KEY (id_logs);
+
+
+--
+-- TOC entry 1854 (class 2606 OID 16504)
+-- Name: marca_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY marca
+    ADD CONSTRAINT marca_pk PRIMARY KEY (id_marca);
+
+
+--
+-- TOC entry 1850 (class 2606 OID 16483)
+-- Name: usuario_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY usuario
+    ADD CONSTRAINT usuario_pk PRIMARY KEY (id_usuario);
+
+
+--
+-- TOC entry 1860 (class 2606 OID 16526)
+-- Name: carro_fk_marca_carro_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY carro
+    ADD CONSTRAINT carro_fk_marca_carro_fkey FOREIGN KEY (fk_marca_carro) REFERENCES marca(id_marca);
+
+
+--
+-- TOC entry 1859 (class 2606 OID 16521)
+-- Name: carro_fk_usuario_carro_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY carro
+    ADD CONSTRAINT carro_fk_usuario_carro_fkey FOREIGN KEY (fk_usuario_carro) REFERENCES usuario(id_usuario);
+
+
+--
+-- TOC entry 1857 (class 2606 OID 16492)
+-- Name: logs_fk_usuario_logs_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY logs
+    ADD CONSTRAINT logs_fk_usuario_logs_fkey FOREIGN KEY (fk_usuario_logs) REFERENCES usuario(id_usuario);
+
+
+--
+-- TOC entry 1858 (class 2606 OID 16505)
+-- Name: marca_fk_usuario_marca_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY marca
+    ADD CONSTRAINT marca_fk_usuario_marca_fkey FOREIGN KEY (fk_usuario_marca) REFERENCES usuario(id_usuario);
+
+
+--
+-- TOC entry 1982 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2013-12-02 10:16:18
+
+--
+-- PostgreSQL database dump complete
+--
+
