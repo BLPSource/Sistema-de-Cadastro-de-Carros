@@ -1,4 +1,4 @@
-Sistema-de-Cadastro-de-Carros
+Sistema-de-Cadastro-de-Carros v0.1
 =============================
 
  Developed in PHP with YiiFramework, Bootstrap and PostgreSQL (2013).
@@ -7,11 +7,6 @@ Sistema-de-Cadastro-de-Carros
 REQUIREMENTS:
 =============================
   PHP5, and Postgre PDO.
-
-
-SISTEMA DE CADASTRO DE CARROS v0.1
-=============================
-  Developed in PHP with YiiFramework, Bootstrap and PostGreSQL (2013).
 
 
 INSTALLATION
