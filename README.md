@@ -22,12 +22,12 @@ INSTALLATION
 
   DATABASE CONFIG IN: "carros/protected/config/main.php":
 
-   <code>
+   ```php
      'db'=>array(
                'connectionString' => 'pgsql:host=localhost;port=5432;dbname=teste',
                'username' => 'postgres',
                'password' => '123',
                'charset' => 'utf8'),
                (...)
-   </code>
+   ```
 
