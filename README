@@ -12,7 +12,7 @@ Developed in PHP with YiiFramework, Bootstrap and PostGreSQL (2013).
 INSTALLATION
 ------------
 
-IMPORT THE BACKUP FILE (db.backup) TO POSTGRESQL DATABASE AND OPEN index.php IN YOUR BROWSER.
+IMPORT THE BACKUP FILE (db.backup) TO POSTGRESQL DATABASE AND RUN THE index.php IN YOUR BROWSER.
 
 
 DATABASE CONFIG IN: "carros/protected/config/main.php":
