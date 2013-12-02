@@ -4,7 +4,22 @@ Yii Web Programming Framework
 Thank you for choosing Yii - a high-performance component-based PHP framework.
 
 
+SISTEMA DE CADASTRO DE CARROS v0.1
+------------
+Developed in PHP with YiiFramework, Bootstrap and PostGreSQL (2013).
+
+
 INSTALLATION
 ------------
 
-IMPORT THE BACKUP FILE (db.backup) TO POSTGRESQL AND RUN teste/index.php.
+IMPORT THE BACKUP FILE (db.backup) TO POSTGRESQL DATABASE AND OPEN index.php IN YOUR BROWSER.
+
+
+DATABASE CONFIG IN: "carros/protected/config/main.php":
+
+'db'=>array(
+            'connectionString' => 'pgsql:host=localhost;port=5432;dbname=teste',
+            'username' => 'postgres',
+            'password' => '123',
+            'charset' => 'utf8'),
+            (...)
