@@ -1,6 +1,7 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'marca-form',
 	'enableAjaxValidation'=>false,
+	'enableClientValidation' => true,
 )); ?>
 
 	<p class="help-block">Campos com <span class="required">*</span> São obrigatórios.</p>
@@ -15,7 +16,7 @@
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'type'=>'primary',
-			'label'=>$model->isNewRecord ? 'Create' : 'Save',
+			'label'=>$model->isNewRecord ? 'Cadastrar' : 'Salvar',
 		)); ?>
 	</div>
 

@@ -27,6 +27,7 @@ $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id_carro',
+		'fk_marca_carro',
 		'modelo',
 		'ano',
 		'valor',
@@ -34,6 +35,6 @@ $this->widget('bootstrap.widgets.TbDetailView',array(
 		'valor_total',
 		'data_cadastro_carro',
 		'fk_usuario_carro',
-		'fk_marca_carro',
+		
 	),
 )); ?>

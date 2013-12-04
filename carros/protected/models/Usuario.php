@@ -33,6 +33,7 @@ class Usuario extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('perfil', 'numerical', 'integerOnly'=>true),
+			array('nome, senha, perfil', 'required'),
 			array('nome, senha', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

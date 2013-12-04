@@ -25,14 +25,6 @@ $('.search-form form').submit(function(){
 
 <h1>Administrar Marcas</h1>
 
-
-<?php echo CHtml::link('Busca Avançada','#',array('class'=>'search-button btn')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
-
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'marca-grid',
 	'dataProvider'=>$model->search(),
@@ -40,7 +32,6 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
 		'id_marca',
 		'marca_nome',
-		'data_cadastro_marca',
 		'fk_usuario_marca',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',

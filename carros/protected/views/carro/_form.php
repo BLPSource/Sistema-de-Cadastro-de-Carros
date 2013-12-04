@@ -20,6 +20,7 @@ $form = $this->beginWidget(
     array(
         'id' => 'carro-form',
         'enableAjaxValidation' => false,
+		'enableClientValidation' => true,
         'htmlOptions' => array('enctype' => 'multipart/form-data'),
     )
 );
@@ -66,9 +67,12 @@ if($model->isNewRecord || Yii::app()->session['isAdmin'])
 	<p class="help-block">Campos com <span class="required">*</span> são obrigatórios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+	
+	<?php echo $form->labelEx($model,'fk_marca_carro'); ?>
+    <?php echo $form->dropDownList($model,'fk_marca_carro', CHtml::listData(Marca::model()->findAll(array('order' => 'id_marca')),'id_marca','marca_nome'), array('class'=>'span5'));?>
 
 	<?php echo $form->textFieldRow($model,'modelo',array('class'=>'span5','maxlength'=>200)); ?>
-
+	
 	<?php echo $form->textFieldRow($model,'ano'); ?>
 
     <p>
@@ -85,7 +89,7 @@ if($model->isNewRecord || Yii::app()->session['isAdmin'])
         echo $form->labelEx($model, 'num_parcelas_max');
         echo $form->dropDownList($model, 'num_parcelas_max', array(3=>'3', 6=>'6', 12=>'12'));
 
-        echo $form->textFieldRow($model,'valor_total',array('readonly'=>true));
+        echo $form->textFieldRow($model,'valor_total',array('readonly'=>true, 'title'=>'Cálculo automático para juros de 7% ao mês'));
      }
          else
          {
@@ -102,16 +106,12 @@ if($model->isNewRecord || Yii::app()->session['isAdmin'])
 
 	<?php echo $form->hiddenField($model,'fk_usuario_carro',array('value'=>Yii::app()->session['userId'])); ?>
 
-	<?php echo $form->labelEx($model,'fk_marca_carro'); ?>
-    <?php echo $form->dropDownList($model,'fk_marca_carro', CHtml::listData(Marca::model()->findAll(array('order' => 'id_marca')),'id_marca','marca_nome'));?>
-
-
 
 <div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'type'=>'primary',
-			'label'=>$model->isNewRecord ? 'Create' : 'Save',
+			'label'=>$model->isNewRecord ? 'Cadastrar' : 'Salvar',
 		)); ?>
 	</div>
 

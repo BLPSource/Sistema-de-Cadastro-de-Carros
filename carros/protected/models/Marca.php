@@ -32,6 +32,7 @@ class Marca extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('fk_usuario_marca', 'numerical', 'integerOnly'=>true),
+			array('marca_nome', 'required'),
 			array('marca_nome', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

@@ -47,7 +47,7 @@ $this->widget('bootstrap.widgets.TbNavbar',array(
 	<div class="clear"></div>
     <br>
 	<div id="footer">
-		Desenvolvido por <a href="mailto:blpilla@yahoo.com.br">Bruno L. Pilla</a> com
+		Desenvolvido por <a href="mailto:blpilla@yahoo.com.br">Bruno L. Pilla</a> em <a href="http://php.net/">PHP</a> com
         <a href="http://www.yiiframework.com/">Yii Framework</a>, <a href="http://getbootstrap.com/">Bootstrap</a> e <a href="http://www.postgresql.org/">PostgreSQL</a> (2013).
 	</div><!-- footer -->
 <br>

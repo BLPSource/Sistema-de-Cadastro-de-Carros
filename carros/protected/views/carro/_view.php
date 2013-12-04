@@ -4,6 +4,11 @@
 	<?php echo CHtml::link(CHtml::encode($data->id_carro),array('view','id'=>$data->id_carro)); ?>
 	<br />
 
+    <b><?php echo CHtml::encode($data->getAttributeLabel('fk_marca_carro')); ?>:</b>
+    <?php #echo CHtml::encode($data->fk_marca_carro); ?>
+    <?php echo CHtml::encode(Marca::model()->findByPK($data->fk_marca_carro)->marca_nome);?>
+	<br>
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('modelo')); ?>:</b>
 	<?php echo CHtml::encode($data->modelo); ?>
 	<br />
@@ -28,11 +33,6 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('valor_total')); ?>:</b>
     <?php echo Yii::app()->numberFormatter->formatCurrency($data->valor_total, 'R$ ');?>
-	<br />
-
-    <b><?php echo CHtml::encode($data->getAttributeLabel('fk_marca_carro')); ?>:</b>
-    <?php #echo CHtml::encode($data->fk_marca_carro); ?>
-    <?php echo CHtml::encode(Marca::model()->findByPK($data->fk_marca_carro)->marca_nome);?>
 
     <br>
 	<b><?php echo CHtml::encode($data->getAttributeLabel('data_cadastro_carro')); ?>:</b>

@@ -15,7 +15,10 @@ $this->menu=array(
 
 <h1>Ver Usuário #<?php echo $model->id_usuario; ?></h1>
 
-<?php $this->widget('bootstrap.widgets.TbDetailView',array(
+<?php
+$model->perfil=($model->perfil==1)?'administrador':'usuário'; 
+
+ $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id_usuario',

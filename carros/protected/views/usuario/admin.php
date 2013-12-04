@@ -25,13 +25,6 @@ $('.search-form form').submit(function(){
 
 <h1>Administrar Usuários</h1>
 
-<?php echo CHtml::link('Busca avançada','#',array('class'=>'search-button btn')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
-
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'usuario-grid',
 	'dataProvider'=>$model->search(),

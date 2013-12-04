@@ -38,6 +38,7 @@ class Carro extends Marca
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('modelo, ano, valor, num_parcelas_max, fk_marca_carro', 'required'),
 			array('ano, valor, num_parcelas_max, valor_total, fk_usuario_carro, fk_marca_carro', 'numerical', 'integerOnly'=>true),
 			array('modelo', 'length', 'max'=>200),
             array('foto', 'file', 'types' => 'jpg,jpeg,png,gif', 'allowEmpty' => true),

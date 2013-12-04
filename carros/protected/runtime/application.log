@@ -4105,3 +4105,445 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/teste/carSystem/libs/teste_bruno/carros/index.php?r=carro/images/carros/Honda-Civic-2014.jpg
 ---
+2013/12/04 13:04:24 [error] [exception.CDbException] exception 'CDbException' with message 'A tabela "usuario" da classe de active record "Usuario", não pôde ser encontrada no banco de dados.' in E:\Domains\blpilla.net\wwwroot\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Usuario))
+#1 E:\Domains\blpilla.net\wwwroot\framework\db\ar\CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 E:\Domains\blpilla.net\wwwroot\framework\db\ar\CActiveRecord.php(1518): CActiveRecord->getTableSchema()
+#3 E:\Domains\blpilla.net\wwwroot\carros\protected\components\UserIdentity.php(38): CActiveRecord->findByAttributes(Array)
+#4 E:\Domains\blpilla.net\wwwroot\carros\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#5 E:\Domains\blpilla.net\wwwroot\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#6 E:\Domains\blpilla.net\wwwroot\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#7 E:\Domains\blpilla.net\wwwroot\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#8 E:\Domains\blpilla.net\wwwroot\carros\protected\controllers\SiteController.php(95): CModel->validate()
+#9 E:\Domains\blpilla.net\wwwroot\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#10 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('login')
+#14 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#15 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/carros/index.php?r=site/login
+HTTP_REFERER=http://blpilla-net.web30.redehost.com.br/carros/index.php?r=site/login
+---
+2013/12/04 13:43:22 [error] [php] call_user_func() expects parameter 1 to be a valid callback, array must have exactly two members (E:\Domains\blpilla.net\wwwroot\framework\web\helpers\CHtml.php:2144)
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\carros\protected\views\carro\_form.php(71): listData()
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(126): require()
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(95): CarroController->renderInternal()
+#3 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(869): CarroController->renderFile()
+#4 E:\Domains\blpilla.net\wwwroot\carros\protected\views\carro\create.php(15): CarroController->renderPartial()
+#5 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(126): require()
+#6 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(95): CarroController->renderInternal()
+#7 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(869): CarroController->renderFile()
+#8 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(782): CarroController->renderPartial()
+#9 E:\Domains\blpilla.net\wwwroot\carros\protected\controllers\CarroController.php(107): CarroController->render()
+#10 E:\Domains\blpilla.net\wwwroot\framework\web\actions\CInlineAction.php(49): CarroController->actionCreate()
+#11 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(308): CInlineAction->runWithParams()
+#12 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilterChain.php(133): CarroController->runAction()
+#13 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#15 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CInlineFilter.php(58): CarroController->filterAccessControl()
+#16 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#17 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(291): CFilterChain->run()
+#18 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(265): CarroController->runActionWithFilters()
+#19 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CarroController->run()
+#20 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CWebApplication->run()
+REQUEST_URI=/carros/index.php?r=carro/create
+2013/12/04 13:50:25 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::execute(): SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "usuario_pk". A declaração SQL executada foi: INSERT INTO "usuario" ("perfil", "nome", "senha") VALUES (:yp0, :yp1, :yp2).
+2013/12/04 13:50:25 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "usuario_pk"' in E:\Domains\blpilla.net\wwwroot\framework\db\CDbCommand.php:358
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 E:\Domains\blpilla.net\wwwroot\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 E:\Domains\blpilla.net\wwwroot\carros\protected\controllers\UsuarioController.php(72): CActiveRecord->save()
+#3 E:\Domains\blpilla.net\wwwroot\framework\web\actions\CInlineAction.php(49): UsuarioController->actionCreate()
+#4 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(291): CFilterChain->run()
+#11 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('create')
+#13 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('usuario/create')
+#14 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/carros/index.php?r=usuario/create
+HTTP_REFERER=http://blpilla-net.web30.redehost.com.br/carros/index.php?r=usuario/create
+---
+2013/12/04 13:53:30 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::execute(): SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "usuario_pk". A declaração SQL executada foi: INSERT INTO "usuario" ("perfil", "nome", "senha") VALUES (:yp0, :yp1, :yp2).
+2013/12/04 13:53:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "usuario_pk"' in E:\Domains\blpilla.net\wwwroot\framework\db\CDbCommand.php:358
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 E:\Domains\blpilla.net\wwwroot\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 E:\Domains\blpilla.net\wwwroot\carros\protected\controllers\UsuarioController.php(72): CActiveRecord->save()
+#3 E:\Domains\blpilla.net\wwwroot\framework\web\actions\CInlineAction.php(49): UsuarioController->actionCreate()
+#4 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(291): CFilterChain->run()
+#11 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('create')
+#13 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('usuario/create')
+#14 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/carros/index.php?r=usuario/create
+HTTP_REFERER=http://blpilla-net.web30.redehost.com.br/carros/index.php?r=usuario/create
+---
+2013/12/04 14:03:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('carro/images/ca...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=carro/images/carros/Honda-Civic-2014.jpg
+---
+2013/12/04 14:03:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('carro/images/ca...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=carro/images/carros/logan2014.jpg
+---
+2013/12/04 14:03:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('carro/images/ca...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=carro/images/carros/mundo%20verde.png
+---
+2013/12/04 14:05:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('carro/images/ca...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=carro/images/carros/Honda-Civic-2014.jpg
+---
+2013/12/04 14:05:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('carro/images/ca...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=carro/images/carros/logan2014.jpg
+---
+2013/12/04 14:05:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('carro/images/ca...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=carro/images/carros/mundo%20verde.png
+---
+2013/12/04 14:06:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('carro/images/ca...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=carro/images/carros/Honda-Civic-2014.jpg
+---
+2013/12/04 14:06:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('carro/images/ca...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=carro/images/carros/logan2014.jpg
+---
+2013/12/04 14:06:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('carro/images/ca...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=carro/images/carros/mundo%20verde.png
+---
+2013/12/04 14:08:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('carro/images/ca...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=carro/images/carros/Honda-Civic-2014.jpg
+---
+2013/12/04 14:08:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('carro/images/ca...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=carro/images/carros/logan2014.jpg
+---
+2013/12/04 14:08:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('carro/images/ca...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=carro/images/carros/mundo%20verde.png
+---
+2013/12/04 14:09:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('carro/images/ca...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=carro/images/carros/Honda-Civic-2014.jpg
+---
+2013/12/04 14:09:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('carro/images/ca...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=carro/images/carros/logan2014.jpg
+---
+2013/12/04 14:09:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('carro/images/ca...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=carro/images/carros/mundo%20verde.png
+---
+2013/12/04 14:45:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/tab...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=site/images/tables.png
+---
+2013/12/04 14:46:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/tab...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=site/images/tables.png
+---
+2013/12/04 14:47:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/tab...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=site/images/tables.png
+---
+2013/12/04 14:48:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/tab...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=site/images/tables.png
+---
+2013/12/04 14:48:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/tab...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=site/images/tables.png
+---
+2013/12/04 14:50:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/tab...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=site/images/tables.png
+---
+2013/12/04 15:14:02 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchColumn(): SQLSTATE[42883]: Undefined function: 7 ERROR:  operator does not exist: date ~~ unknown
+LINE 1: ... COUNT(*) FROM "marca" "t" WHERE data_cadastro_marca LIKE $1
+                                                                ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.. A declaração SQL executada foi: SELECT COUNT(*) FROM "marca" "t" WHERE data_cadastro_marca LIKE :ycp0.
+2013/12/04 15:14:02 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42883]: Undefined function: 7 ERROR:  operator does not exist: date ~~ unknown
+LINE 1: ... COUNT(*) FROM "marca" "t" WHERE data_cadastro_marca LIKE $1
+                                                                ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.' in E:\Domains\blpilla.net\wwwroot\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 E:\Domains\blpilla.net\wwwroot\framework\db\ar\CActiveRecord.php(1601): CDbCommand->queryScalar()
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#3 E:\Domains\blpilla.net\wwwroot\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#4 E:\Domains\blpilla.net\wwwroot\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#5 E:\Domains\blpilla.net\wwwroot\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#6 E:\Domains\blpilla.net\wwwroot\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#7 E:\Domains\blpilla.net\wwwroot\framework\zii\widgets\grid\CGridView.php(339): CBaseListView->init()
+#8 E:\Domains\blpilla.net\wwwroot\carros\protected\extensions\bootstrap\widgets\TbGridView.php(49): CGridView->init()
+#9 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(147): TbGridView->init()
+#10 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(172): CBaseController->createWidget('bootstrap.widge...', Array)
+#11 E:\Domains\blpilla.net\wwwroot\carros\protected\views\marca\admin.php(43): CBaseController->widget('bootstrap.widge...', Array)
+#12 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(126): require('E:\Domains\blpi...')
+#13 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\Domains\blpi...', Array, true)
+#14 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(869): CBaseController->renderFile('E:\Domains\blpi...', Array, true)
+#15 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#16 E:\Domains\blpilla.net\wwwroot\carros\protected\controllers\MarcaController.php(148): CController->render('admin', Array)
+#17 E:\Domains\blpilla.net\wwwroot\framework\web\actions\CInlineAction.php(49): MarcaController->actionAdmin()
+#18 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#19 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#20 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#21 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#22 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#23 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#24 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(291): CFilterChain->run()
+#25 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('admin')
+#27 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('marca/admin')
+#28 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#29 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/carros/index.php?r=marca/admin
+HTTP_REFERER=http://blpilla-net.web30.redehost.com.br/carros/index.php?r=marca
+---
+2013/12/04 15:15:07 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchColumn(): SQLSTATE[42883]: Undefined function: 7 ERROR:  operator does not exist: date ~~ unknown
+LINE 1: ... COUNT(*) FROM "marca" "t" WHERE data_cadastro_marca LIKE $1
+                                                                ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.. A declaração SQL executada foi: SELECT COUNT(*) FROM "marca" "t" WHERE data_cadastro_marca LIKE :ycp0.
+2013/12/04 15:15:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42883]: Undefined function: 7 ERROR:  operator does not exist: date ~~ unknown
+LINE 1: ... COUNT(*) FROM "marca" "t" WHERE data_cadastro_marca LIKE $1
+                                                                ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.' in E:\Domains\blpilla.net\wwwroot\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 E:\Domains\blpilla.net\wwwroot\framework\db\ar\CActiveRecord.php(1601): CDbCommand->queryScalar()
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#3 E:\Domains\blpilla.net\wwwroot\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#4 E:\Domains\blpilla.net\wwwroot\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#5 E:\Domains\blpilla.net\wwwroot\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#6 E:\Domains\blpilla.net\wwwroot\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#7 E:\Domains\blpilla.net\wwwroot\framework\zii\widgets\grid\CGridView.php(339): CBaseListView->init()
+#8 E:\Domains\blpilla.net\wwwroot\carros\protected\extensions\bootstrap\widgets\TbGridView.php(49): CGridView->init()
+#9 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(147): TbGridView->init()
+#10 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(172): CBaseController->createWidget('bootstrap.widge...', Array)
+#11 E:\Domains\blpilla.net\wwwroot\carros\protected\views\marca\admin.php(43): CBaseController->widget('bootstrap.widge...', Array)
+#12 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(126): require('E:\Domains\blpi...')
+#13 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\Domains\blpi...', Array, true)
+#14 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(869): CBaseController->renderFile('E:\Domains\blpi...', Array, true)
+#15 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#16 E:\Domains\blpilla.net\wwwroot\carros\protected\controllers\MarcaController.php(148): CController->render('admin', Array)
+#17 E:\Domains\blpilla.net\wwwroot\framework\web\actions\CInlineAction.php(49): MarcaController->actionAdmin()
+#18 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#19 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#20 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#21 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#22 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#23 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#24 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(291): CFilterChain->run()
+#25 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('admin')
+#27 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('marca/admin')
+#28 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#29 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/carros/index.php?r=marca/admin
+---
+2013/12/04 15:15:18 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchColumn(): SQLSTATE[42883]: Undefined function: 7 ERROR:  operator does not exist: date ~~ unknown
+LINE 1: ... COUNT(*) FROM "marca" "t" WHERE data_cadastro_marca LIKE $1
+                                                                ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.. A declaração SQL executada foi: SELECT COUNT(*) FROM "marca" "t" WHERE data_cadastro_marca LIKE :ycp0.
+2013/12/04 15:15:18 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42883]: Undefined function: 7 ERROR:  operator does not exist: date ~~ unknown
+LINE 1: ... COUNT(*) FROM "marca" "t" WHERE data_cadastro_marca LIKE $1
+                                                                ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.' in E:\Domains\blpilla.net\wwwroot\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 E:\Domains\blpilla.net\wwwroot\framework\db\ar\CActiveRecord.php(1601): CDbCommand->queryScalar()
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#3 E:\Domains\blpilla.net\wwwroot\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#4 E:\Domains\blpilla.net\wwwroot\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#5 E:\Domains\blpilla.net\wwwroot\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#6 E:\Domains\blpilla.net\wwwroot\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#7 E:\Domains\blpilla.net\wwwroot\framework\zii\widgets\grid\CGridView.php(339): CBaseListView->init()
+#8 E:\Domains\blpilla.net\wwwroot\carros\protected\extensions\bootstrap\widgets\TbGridView.php(49): CGridView->init()
+#9 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(147): TbGridView->init()
+#10 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(172): CBaseController->createWidget('bootstrap.widge...', Array)
+#11 E:\Domains\blpilla.net\wwwroot\carros\protected\views\marca\admin.php(43): CBaseController->widget('bootstrap.widge...', Array)
+#12 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(126): require('E:\Domains\blpi...')
+#13 E:\Domains\blpilla.net\wwwroot\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\Domains\blpi...', Array, true)
+#14 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(869): CBaseController->renderFile('E:\Domains\blpi...', Array, true)
+#15 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#16 E:\Domains\blpilla.net\wwwroot\carros\protected\controllers\MarcaController.php(148): CController->render('admin', Array)
+#17 E:\Domains\blpilla.net\wwwroot\framework\web\actions\CInlineAction.php(49): MarcaController->actionAdmin()
+#18 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#19 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#20 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#21 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#22 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#23 E:\Domains\blpilla.net\wwwroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#24 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(291): CFilterChain->run()
+#25 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('admin')
+#27 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('marca/admin')
+#28 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#29 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/carros/index.php?r=marca/admin
+---
+2013/12/04 15:17:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "images" solicitada.' in E:\Domains\blpilla.net\wwwroot\framework\web\CController.php:483
+Stack trace:
+#0 E:\Domains\blpilla.net\wwwroot\framework\web\CController.php(270): CController->missingAction('images')
+#1 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(282): CController->run('images')
+#2 E:\Domains\blpilla.net\wwwroot\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/tab...')
+#3 E:\Domains\blpilla.net\wwwroot\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\Domains\blpilla.net\wwwroot\carros\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/carros/index.php?r=site/images/tables.png
+---

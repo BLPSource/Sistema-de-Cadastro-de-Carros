@@ -25,13 +25,6 @@ $('.search-form form').submit(function(){
 
 <h1>Administrar Logs</h1>
 
-<?php echo CHtml::link('Busca Avançada','#',array('class'=>'search-button btn')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
-
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'logs-grid',
 	'dataProvider'=>$model->search(),
