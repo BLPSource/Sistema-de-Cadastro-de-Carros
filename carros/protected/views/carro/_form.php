@@ -5,7 +5,6 @@ $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'enableAjaxValidation'=>false,
 ));
 
-
 $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', [
     'id' => 'carro-form',
     'enableAjaxValidation' => true,
