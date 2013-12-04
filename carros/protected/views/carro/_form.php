@@ -89,7 +89,7 @@ if($model->isNewRecord || Yii::app()->session['isAdmin'])
         echo $form->labelEx($model, 'num_parcelas_max');
         echo $form->dropDownList($model, 'num_parcelas_max', array(3=>'3', 6=>'6', 12=>'12'));
 
-        echo $form->textFieldRow($model,'valor_total',array('readonly'=>true, 'title'=>'Cálculo automático para juros de 7% ao mês'));
+        echo $form->textFieldRow($model,'valor_total',array('readonly'=>true, 'title'=>'Cálculo automático para juros de 0,7% ao mês'));
      }
          else
          {
