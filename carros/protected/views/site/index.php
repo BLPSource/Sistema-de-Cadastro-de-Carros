@@ -19,7 +19,7 @@ $this->pageTitle=Yii::app()->name;
     <br>
     <?php echo CHtml::image('images/tables.png'); ?><br>
     <a href="javascript:$('#dialog').show();void 0;">Ver SQL</a><br>
-    <a href="https://github.com/BLPSource/Sistema-de-Cadastro-de-Carros" target="_new">Ver código fonte</a>
+    <a href="https://github.com/BLPSource/Sistema-de-Cadastro-de-Carros" target="_new">Ver código-fonte</a>
 
 </div>
 
